@@ -1,30 +1,33 @@
 /*------------------------------
+            audio
+------------------------------*/
+audio {
+  @include basicWidth;
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+/*------------------------------
             clock
 ------------------------------*/
 #clock {
   color: $white;
-  padding: 20px;
-  line-height: 1em;
+  padding: 2rem;
   text-align: center;
   @include flexbox($flexW: wrap);
+  font-weight: bold;
 
   span {
     font-size: 3em;
     margin-right: 10px;
-
-    font-weight: bold;
   }
 
   h2 {
     font-size: 2.8em;
-
-    font-weight: bold;
   }
 
   p {
     width: 100%;
-
-    font-weight: bold;
     font-size: 2em;
     margin-top: 10px;
   }
@@ -34,9 +37,25 @@
             login
 ------------------------------*/
 .login-wrapper {
-  max-width: 90%;
+  @include basicWidth();
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem;
+
+  .login-form {
+    h2 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 2.4em;
+      line-height: normal;
+      text-align: center;
+    }
+
+    input#btn {
+      @include btn;
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
 
   #greeting {
     color: $white;
@@ -49,22 +68,6 @@
       padding: 1rem 0 0;
     }
   }
-
-  h2 {
-    display: none;
-  }
-
-  input#btn {
-    border: 1px solid $mainColor;
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background: $mainColor;
-    color: $white;
-    margin-top: 10px;
-  }
 }
 
 /*------------------------------
@@ -75,8 +78,9 @@
   background: rgba(255, 255, 255, 0.8);
   width: 90%;
   text-align: center;
-  margin: 0 auto 30px;
+  margin: 0 auto 2rem;
   border-radius: 5px;
+  padding: 10px;
 
   span {
     position: relative;
@@ -84,34 +88,15 @@
 
     &:first-child:before {
       content: "thermostat";
-      font-family: "Material Icons";
+      font-family: $material;
       vertical-align: bottom;
     }
     &:last-child:before {
       content: "location_on";
-      font-family: "Material Icons";
+      font-family: $material;
       vertical-align: bottom;
       margin-left: 20px;
     }
-  }
-}
-
-/*------------------------------
-            quotes
-------------------------------*/
-
-#quotes {
-  border-top: 1px solid $white;
-  width: 100%;
-  text-align: center;
-  color: $white;
-  padding: 10px 20px;
-
-  span {
-    font-size: 16px;
-    display: block;
-
-    line-height: 24px;
   }
 }
 
@@ -120,27 +105,24 @@
 ------------------------------*/
 
 #wrapper {
-  text-align: center;
-  margin: 30px auto 0;
-  max-width: 90%;
-  padding: 20px;
+  @include basicWidth($mt: 4rem, $mb: 4rem, $w: 90%);
+  padding: 2rem;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
-  height: 310px;
-  overflow-y: scroll;
 
   #todo-form {
     h3 {
       color: $black;
-      font-size: 30px;
-      margin-bottom: 20px;
+      font-size: 2.4em;
+      margin-bottom: 2rem;
       position: relative;
 
       &::before {
         content: "view_list";
-        font-family: "Material Icons";
-        font-size: 34px;
+        font-family: $material;
+        font-size: 1.4em;
         vertical-align: bottom;
+        margin-right: 10px;
       }
     }
     .todo-form__input {
@@ -150,39 +132,31 @@
         width: 100%;
       }
 
-      input#todo-btn {
-        cursor: pointer;
-        padding: 10px 14px;
-        border: 1px solid $mainColor;
-        border-radius: 5px;
-        background: $mainColor;
-        color: $white;
-        font-size: 16px;
-        text-align: center;
-        text-transform: uppercase;
-        vertical-align: bottom;
+      #todo-btn {
+        @include btn;
       }
     }
   }
 
   /* list */
   .todo-list {
+    margin-top: 20px;
+
     p {
       display: none;
     }
+
     #todo-list {
       @include flexbox($flexJC: space-between, $flexW: wrap);
-      margin-top: 20px;
 
       li {
         @include flexbox($flexJC: space-between);
         width: 100%;
         font-size: 16px;
         text-align: left;
-        position: relative;
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
         border-bottom: 1px dashed $mainColor;
-        padding-bottom: 5px;
 
         span {
           display: block;
@@ -191,24 +165,25 @@
         }
 
         .delete-btn {
-          font-family: "Material Icons";
+          cursor: pointer;
+          font-family: $material;
           border: 1px solid $mainColor;
           border-radius: 5px;
           background: $mainColor;
           color: $white;
-          width: 32px;
-          height: 32px;
+          width: $checkSize;
+          height: $checkSize;
         }
 
         .check-btn {
-          border: 1px solid $mainColor;
-          background: $white;
-          border-radius: 5px;
+          cursor: pointer;
           color: $white;
           font-size: 0;
-          width: 32px;
-          height: 32px;
-          cursor: pointer;
+          background: $white;
+          border: 1px solid $mainColor;
+          border-radius: 5px;
+          width: $checkSize;
+          height: $checkSize;
           overflow: hidden;
         }
 
@@ -228,7 +203,7 @@
               @include checkClick;
               @include flexbox;
               content: "check";
-              font-family: "Material Icons";
+              font-family: $material;
               color: $white;
               font-size: 20px;
             }
@@ -250,9 +225,23 @@
 // footer
 //
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  @include basicWidth($mw: 100%);
+  padding-top: 2rem;
+
+  #quotes {
+    border-top: 1px solid $white;
+    width: 100%;
+    text-align: center;
+    color: $white;
+    padding: 10px 20px;
+
+    span {
+      font-size: 16px;
+      display: block;
+
+      line-height: 24px;
+    }
+  }
 
   small {
     display: block;

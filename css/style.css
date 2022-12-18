@@ -182,29 +182,42 @@ input[type="text"]:focus {
   color: #fff;
 }
 
-audio {
-  position: relative;
-  left: 50%;
-  top: 1%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: 10;
+.hidden {
+  display: none;
+}
+
+/* scrollbar */
+body::-webkit-scrollbar,
+#wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb,
+#wrapper::-webkit-scrollbar-thumb {
+  background-color: #9d61d8;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+body::-webkit-scrollbar-track,
+#wrapper::-webkit-scrollbar-track {
+  background-color: #eee;
+  border-radius: 10px;
 }
 
 /*------------------------------
             body-background
 ------------------------------*/
-html,
 body {
-  height: 100%;
-}
-
-body {
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: top center;
-  position: relative;
+  background-color: #9d61d8;
+  background-size: cover;
   -webkit-transition: background-image 4s;
   transition: background-image 4s;
+  position: relative;
+  z-index: 1;
 }
 
 body::after {
@@ -232,12 +245,14 @@ body::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .loader .textbox {
@@ -300,8 +315,16 @@ body::after {
   }
 }
 
-.hidden {
-  display: none;
+/*------------------------------
+            audio
+------------------------------*/
+audio {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 0;
+  text-align: center;
+  position: relative;
+  padding: 1rem 2rem;
 }
 
 /*------------------------------
@@ -309,8 +332,7 @@ body::after {
 ------------------------------*/
 #clock {
   color: #fff;
-  padding: 20px;
-  line-height: 1em;
+  padding: 2rem;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -323,22 +345,20 @@ body::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-weight: bold;
 }
 
 #clock span {
   font-size: 3em;
   margin-right: 10px;
-  font-weight: bold;
 }
 
 #clock h2 {
   font-size: 2.8em;
-  font-weight: bold;
 }
 
 #clock p {
   width: 100%;
-  font-weight: bold;
   font-size: 2em;
   margin-top: 10px;
 }
@@ -347,9 +367,34 @@ body::after {
             login
 ------------------------------*/
 .login-wrapper {
-  max-width: 90%;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 0;
+  text-align: center;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem;
+}
+
+.login-wrapper .login-form h2 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 2.4em;
+  line-height: normal;
+  text-align: center;
+}
+
+.login-wrapper .login-form input#btn {
+  cursor: pointer;
+  border: 1px solid #9d61d8;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 0.7rem 2rem;
+  border-radius: 5px;
+  background: #9d61d8;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .login-wrapper #greeting {
@@ -364,22 +409,6 @@ body::after {
   padding: 1rem 0 0;
 }
 
-.login-wrapper h2 {
-  display: none;
-}
-
-.login-wrapper input#btn {
-  border: 1px solid #9d61d8;
-  width: 100%;
-  text-align: center;
-  font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  background: #9d61d8;
-  color: #fff;
-  margin-top: 10px;
-}
-
 /*------------------------------
             weather
 ------------------------------*/
@@ -387,8 +416,9 @@ body::after {
   background: rgba(255, 255, 255, 0.8);
   width: 90%;
   text-align: center;
-  margin: 0 auto 30px;
+  margin: 0 auto 2rem;
   border-radius: 5px;
+  padding: 10px;
 }
 
 #weather span {
@@ -410,49 +440,32 @@ body::after {
 }
 
 /*------------------------------
-            quotes
-------------------------------*/
-#quotes {
-  border-top: 1px solid #fff;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  padding: 10px 20px;
-}
-
-#quotes span {
-  font-size: 16px;
-  display: block;
-  line-height: 24px;
-}
-
-/*------------------------------
             todo list
 ------------------------------*/
 #wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin: 4rem auto 4rem;
   text-align: center;
-  margin: 30px auto 0;
-  max-width: 90%;
-  padding: 20px;
+  padding: 2rem;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
-  height: 310px;
-  overflow-y: scroll;
   /* list */
 }
 
 #wrapper #todo-form h3 {
   color: #000;
-  font-size: 30px;
-  margin-bottom: 20px;
+  font-size: 2.4em;
+  margin-bottom: 2rem;
   position: relative;
 }
 
 #wrapper #todo-form h3::before {
   content: "view_list";
   font-family: "Material Icons";
-  font-size: 34px;
+  font-size: 1.4em;
   vertical-align: bottom;
+  margin-right: 10px;
 }
 
 #wrapper #todo-form .todo-form__input {
@@ -473,17 +486,20 @@ body::after {
   width: 100%;
 }
 
-#wrapper #todo-form .todo-form__input input#todo-btn {
+#wrapper #todo-form .todo-form__input #todo-btn {
   cursor: pointer;
-  padding: 10px 14px;
   border: 1px solid #9d61d8;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 0.7rem 2rem;
   border-radius: 5px;
   background: #9d61d8;
   color: #fff;
-  font-size: 16px;
-  text-align: center;
   text-transform: uppercase;
-  vertical-align: bottom;
+}
+
+#wrapper .todo-list {
+  margin-top: 20px;
 }
 
 #wrapper .todo-list p {
@@ -502,7 +518,6 @@ body::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 20px;
 }
 
 #wrapper .todo-list #todo-list li {
@@ -520,10 +535,9 @@ body::after {
   width: 100%;
   font-size: 16px;
   text-align: left;
-  position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px dashed #9d61d8;
-  padding-bottom: 5px;
 }
 
 #wrapper .todo-list #todo-list li span {
@@ -533,6 +547,7 @@ body::after {
 }
 
 #wrapper .todo-list #todo-list li .delete-btn {
+  cursor: pointer;
   font-family: "Material Icons";
   border: 1px solid #9d61d8;
   border-radius: 5px;
@@ -543,14 +558,14 @@ body::after {
 }
 
 #wrapper .todo-list #todo-list li .check-btn {
-  border: 1px solid #9d61d8;
-  background: #fff;
-  border-radius: 5px;
+  cursor: pointer;
   color: #fff;
   font-size: 0;
+  background: #fff;
+  border: 1px solid #9d61d8;
+  border-radius: 5px;
   width: 32px;
   height: 32px;
-  cursor: pointer;
   overflow: hidden;
 }
 
@@ -600,9 +615,25 @@ body::after {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  max-width: 100%;
   width: 100%;
+  margin: 0 auto 0;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+footer #quotes {
+  border-top: 1px solid #fff;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+footer #quotes span {
+  font-size: 16px;
+  display: block;
+  line-height: 24px;
 }
 
 footer small {
@@ -611,34 +642,16 @@ footer small {
   color: #fff;
 }
 
-@media screen and (min-width: 768px) {
-  input[type="text"] {
-    width: 70%;
-  }
-  .login-form input#btn {
-    width: 29%;
-  }
-  #wrapper {
-    height: 300px;
-  }
-  input[type="submit"],
-  button {
-    cursor: pointer;
-  }
-  .login-wrapper h2 {
-    display: block;
-    color: #fff;
-    font-size: 2.4em;
-    line-height: normal;
-    text-align: center;
-  }
-}
-
 @media screen and (min-width: 1025px) {
-  #greeting {
-    font-size: 70px;
-    margin: 0;
-    line-height: normal;
+  body {
+    height: 100vh;
+  }
+  audio {
+    max-width: 20%;
+    position: absolute;
+    left: 1%;
+    bottom: 2%;
+    padding: 0;
   }
   #weather {
     width: 20%;
@@ -668,16 +681,42 @@ footer small {
     padding: 100px 0 0;
     max-width: 1200px;
   }
+  .login-wrapper .login-form .login-form__input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login-wrapper .login-form .login-form__input input[type="text"] {
+    width: 79%;
+  }
+  .login-wrapper .login-form .login-form__input input#btn {
+    width: 20%;
+    margin-top: 0;
+  }
+  .login-wrapper #greeting {
+    font-size: 5em;
+  }
+  .login-wrapper #greeting span {
+    padding-top: 3rem;
+  }
   .login-wrapper h2 {
     font-size: 3em;
     line-height: normal;
     text-align: center;
   }
   #wrapper {
-    max-width: 1200px;
-    height: 550px;
+    height: 50vh;
+    overflow-y: scroll;
   }
-  .todo-list {
+  #wrapper .todo-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -688,37 +727,20 @@ footer small {
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  .todo-list p {
+  #wrapper .todo-list #todo-list {
+    width: 68%;
+  }
+  #wrapper .todo-list #todo-list li {
+    width: 48%;
+  }
+  #wrapper .todo-list p {
     display: block;
     width: 30%;
-    margin-top: 20px;
   }
-  .todo-list p img {
+  #wrapper .todo-list p img {
     border-radius: 10px;
   }
-  #wrapper #todo-list {
-    width: 69%;
-  }
-  audio {
-    position: absolute;
-    top: auto;
-    bottom: 1%;
-    left: 1%;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  /* scrollbar */
-  #wrapper::-webkit-scrollbar {
-    width: 8px;
-  }
-  #wrapper::-webkit-scrollbar-thumb {
-    background-color: #9d61d8;
-    border-radius: 10px;
-    background-clip: padding-box;
-    border: 1px solid transparent;
-  }
-  #wrapper::-webkit-scrollbar-track {
-    background-color: #eee;
-    border-radius: 10px;
+  footer {
+    padding-top: 0;
   }
 }

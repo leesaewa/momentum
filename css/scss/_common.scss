@@ -26,36 +26,50 @@ input {
     width: 100%;
 
     &:focus {
-      outline: 1px solid #9d61d8;
+      outline: 1px solid $mainColor;
     }
   }
 }
 
 ::selection {
-  background: #9d61d8;
-  color: #fff;
+  background: $mainColor;
+  color: $white;
 }
 
-audio {
-  position: relative;
-  left: 50%;
-  top: 1%;
-  transform: translateX(-50%);
-  z-index: 10;
+.hidden {
+  display: none;
+}
+
+/* scrollbar */
+body::-webkit-scrollbar,
+#wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb,
+#wrapper::-webkit-scrollbar-thumb {
+  background-color: #9d61d8;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+body::-webkit-scrollbar-track,
+#wrapper::-webkit-scrollbar-track {
+  background-color: #eee;
+  border-radius: 10px;
 }
 
 /*------------------------------
             body-background
 ------------------------------*/
-html,
+
 body {
-  height: 100%;
-}
-body {
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: top center;
-  position: relative;
+  background-color: $mainColor;
+  background-size: cover;
   transition: background-image 4s;
+  position: relative;
+  z-index: 1;
 
   &::after {
     content: "";
@@ -87,9 +101,7 @@ body {
   z-index: 9999;
   opacity: 1;
   transition: 0.5s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox;
 
   .textbox {
     text-align: center;
@@ -107,7 +119,7 @@ body {
     p {
       font-size: 60px;
       margin-top: 60px;
-      color: #fff;
+      color: $white;
       opacity: 0;
       animation-name: visualAnimation;
       animation-duration: 0.9s;
@@ -128,8 +140,4 @@ body {
   100% {
     opacity: 1;
   }
-}
-
-.hidden {
-  display: none;
 }

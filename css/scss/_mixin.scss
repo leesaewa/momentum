@@ -7,8 +7,27 @@
 
 @mixin checkClick() {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: $checkSize;
+  height: $checkSize;
   top: 0;
   left: 0;
+}
+
+@mixin basicWidth($mw: 1200px, $w: 100%, $mt: 0, $mb: 0, $mc: auto) {
+  max-width: $mw;
+  width: $w;
+  margin: $mt $mc $mb;
+  text-align: center;
+}
+
+@mixin btn {
+  cursor: pointer;
+  border: 1px solid $mainColor;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 0.7rem 2rem;
+  border-radius: 5px;
+  background: $mainColor;
+  color: $white;
+  text-transform: uppercase;
 }

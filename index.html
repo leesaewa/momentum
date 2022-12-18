@@ -22,6 +22,7 @@
       </div> -->
 
       <!-- <audio src="src/christmas_tree.mp3" autoplay loop controls id="myAudio"></audio> -->
+      <audio src="src/christmas_tree.mp3" loop controls></audio>
 
       <section id="clock">
           <span></span>
@@ -37,8 +38,10 @@
       <section class="login-wrapper">
           <form class="login-form hidden">
               <h2>Welcome to the BTS To do list</h2>
-              <input required maxlength="15" type="text" placeholder="What is your name?" />
+              <div class="login-form__input">
+                <input required maxlength="15" type="text" placeholder="What is your name?" />
               <input type="submit" id="btn" value="Log In"></input>
+              </div>
           </form>
           <h1 id="greeting" class="hidden"></h1>
       </section>
@@ -67,7 +70,7 @@
     <span></span>
     </div>
 
-    <small>Copyright © Saewa's Portfolio All Rights Reserved.</small>
+    <small>Copyright © BTS todolist All Rights Reserved.</small>
   </footer>
 
   <!-- <script src="js/loading.js"></script> -->

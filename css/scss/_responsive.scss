@@ -1,31 +1,14 @@
-@media screen and (min-width: 768px) {
-  input[type="text"] {
-    width: 70%;
-  }
-  .login-form input#btn {
-    width: 29%;
-  }
-  #wrapper {
-    height: 300px;
-  }
-  input[type="submit"],
-  button {
-    cursor: pointer;
-  }
-  .login-wrapper h2 {
-    display: block;
-    color: #fff;
-    font-size: 2.4em;
-    line-height: normal;
-    text-align: center;
-  }
-}
-
 @media screen and (min-width: 1025px) {
-  #greeting {
-    font-size: 70px;
-    margin: 0;
-    line-height: normal;
+  body {
+    height: 100vh;
+  }
+
+  audio {
+    max-width: 20%;
+    position: absolute;
+    left: 1%;
+    bottom: 2%;
+    padding: 0;
   }
 
   #weather {
@@ -34,9 +17,10 @@
     right: 1%;
     top: 1%;
     margin-bottom: 0;
-  }
-  #weather span {
-    display: inline-block;
+
+    span {
+      display: inline-block;
+    }
   }
 
   #clock {
@@ -47,62 +31,76 @@
     left: 1%;
     justify-content: flex-start;
     text-align: left;
-  }
-  #clock p {
-    font-size: 2.1em;
+
+    p {
+      font-size: 2.1em;
+    }
   }
 
   .login-wrapper {
     padding: 100px 0 0;
     max-width: 1200px;
-  }
-  .login-wrapper h2 {
-    font-size: 3em;
-    line-height: normal;
-    text-align: center;
+
+    .login-form {
+      .login-form__input {
+        @include flexbox($flexJC: space-between);
+
+        input {
+          &[type="text"] {
+            width: 79%;
+          }
+          &#btn {
+            width: 20%;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    #greeting {
+      font-size: 5em;
+
+      span {
+        padding-top: 3rem;
+      }
+    }
+
+    h2 {
+      font-size: 3em;
+      line-height: normal;
+      text-align: center;
+    }
   }
 
   #wrapper {
-    max-width: 1200px;
-    height: 550px;
-  }
-  .todo-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  .todo-list p {
-    display: block;
-    width: 30%;
-    margin-top: 20px;
-  }
-  .todo-list p img {
-    border-radius: 10px;
-  }
-  #wrapper #todo-list {
-    width: 69%;
+    height: 50vh;
+    overflow-y: scroll;
+
+    .todo-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      #todo-list {
+        width: 68%;
+
+        li {
+          width: 48%;
+        }
+      }
+
+      p {
+        display: block;
+        width: 30%;
+
+        img {
+          border-radius: 10px;
+        }
+      }
+    }
   }
 
-  audio {
-    position: absolute;
-    top: auto;
-    bottom: 1%;
-    left: 1%;
-    transform: translateX(0);
-  }
-
-  /* scrollbar */
-  #wrapper::-webkit-scrollbar {
-    width: 8px;
-  }
-  #wrapper::-webkit-scrollbar-thumb {
-    background-color: #9d61d8;
-    border-radius: 10px;
-    background-clip: padding-box;
-    border: 1px solid transparent;
-  }
-  #wrapper::-webkit-scrollbar-track {
-    background-color: #eee;
-    border-radius: 10px;
+  footer {
+    padding-top: 0;
   }
 }
