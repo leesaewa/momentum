@@ -1,87 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="icon" href="img/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="icon" href="img/favicon.ico" />
 
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
     <title>saewa's Todolist</title>
-</head>
-<body>
-  <main>
-      <!-- <div class="loader">
-          <div class="textbox">
-              <img src="img/logo.png" alt="bts logo">
-              <p class="eng">I Purple U</p>
-          </div>
-      </div> -->
+  </head>
+  <body>
+    <main>
+      <div class="loader">
+        <div class="textbox">
+          <img src="img/logo.png" alt="bts logo" />
+          <p class="eng">I Purple U</p>
+        </div>
+      </div>
 
-      <!-- <audio src="src/christmas_tree.mp3" autoplay loop controls id="myAudio"></audio> -->
-      <audio src="src/christmas_tree.mp3" loop controls></audio>
+      <audio src="src/christmas_tree.mp3" autoplay loop controls></audio>
 
       <section id="clock">
-          <span></span>
-          <h2></h2>
-          <p></p>
+        <span></span>
+        <h2></h2>
+        <p></p>
       </section>
 
       <div id="weather">
-          <span></span>
-          <span></span>
+        <span></span>
+        <span></span>
       </div>
 
       <section class="login-wrapper">
-          <form class="login-form hidden">
-              <h2>Welcome to the BTS To do list</h2>
-              <div class="login-form__input">
-                <input required maxlength="15" type="text" placeholder="What is your name?" />
-              <input type="submit" id="btn" value="Log In"></input>
-              </div>
-          </form>
-          <h1 id="greeting" class="hidden"></h1>
+        <form class="login-form hidden">
+          <h2>Welcome to the BTS To do list</h2>
+          <div class="login-form__input">
+            <input
+              required
+              maxlength="15"
+              type="text"
+              placeholder="What is your name?"
+            />
+            <input type="submit" id="btn" value="Log In" />
+          </div>
+        </form>
+        <h1 id="greeting" class="hidden"></h1>
       </section>
 
       <section id="wrapper">
-          <form id="todo-form">
-              <h3>To Do List</h3>
-              <div class="todo-form__input">
-                <input type="text" placeholder="Write a to do and press enter" required>
-              <input type="submit" id="todo-btn" value="Enter"></input>
-              </div>
-          </form>
-
-          <div class="todo-list">
-              <p><img src="img/bts08.jpg" alt="bts img"></p>
-              <ul id="todo-list"></ul>
+        <form id="todo-form">
+          <h3>To Do List</h3>
+          <div class="todo-form__input">
+            <input
+              type="text"
+              placeholder="Write a to do and press enter"
+              required
+            />
+            <input type="submit" id="todo-btn" value="Enter" />
           </div>
+        </form>
+
+        <div class="todo-list">
+          <p><img src="img/bts08.jpg" alt="bts img" /></p>
+          <ul id="todo-list"></ul>
+        </div>
       </section>
+    </main>
 
-  </main>
+    <footer>
+      <div id="quotes">
+        <span></span>
+        <span class="kor"></span>
+        <span></span>
+      </div>
 
-  <footer>
-    <div id="quotes">
-      <span></span>
-    <span class="kor"></span>
-    <span></span>
-    </div>
+      <small>Copyright © BTS todolist All Rights Reserved.</small>
+    </footer>
 
-    <small>Copyright © BTS todolist All Rights Reserved.</small>
-  </footer>
-
-  <!-- <script src="js/loading.js"></script> -->
-  <script src="js/login.js"></script>
-  <script src="js/background.js"></script>
-  <script src="js/clock.js"></script>
-  <script src="js/quotes.js"></script>
-  <script src="js/todo.js"></script>
-  <script src="js/weather.js"></script>
-  
-
-
-</body>
+    <script src="js/loading.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+  </body>
 </html>
