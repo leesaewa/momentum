@@ -151,15 +151,13 @@ img {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-main {
-  position: relative;
-  z-index: 9;
-  height: 100vh;
-}
-
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+input {
+  font-family: "KoHo", sans-serif;
 }
 
 input[type="text"] {
@@ -196,6 +194,11 @@ audio {
 /*------------------------------
             body-background
 ------------------------------*/
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-repeat: no-repeat;
   background-position: top center;
@@ -212,6 +215,7 @@ body::after {
   background: rgba(52, 0, 126, 0.5);
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 
 .loader {
@@ -240,7 +244,7 @@ body::after {
   text-align: center;
 }
 
-.loader img {
+.loader .textbox img {
   width: 20%;
   opacity: 0;
   -webkit-animation-name: visualAnimation;
@@ -255,7 +259,7 @@ body::after {
           animation-fill-mode: forwards;
 }
 
-.loader p {
+.loader .textbox p {
   font-size: 60px;
   margin-top: 60px;
   color: #fff;
@@ -300,12 +304,6 @@ body::after {
   display: none;
 }
 
-#greeting {
-  color: #fff;
-  font-size: 50px;
-  text-align: center;
-}
-
 /*------------------------------
             clock
 ------------------------------*/
@@ -322,7 +320,9 @@ body::after {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #clock span {
@@ -349,6 +349,19 @@ body::after {
 .login-wrapper {
   max-width: 90%;
   margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.login-wrapper #greeting {
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+}
+
+.login-wrapper #greeting span {
+  display: block;
+  font-size: 0.7em;
+  padding: 1rem 0 0;
 }
 
 .login-wrapper h2 {
@@ -401,8 +414,6 @@ body::after {
 ------------------------------*/
 #quotes {
   border-top: 1px solid #fff;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   text-align: center;
   color: #fff;
@@ -444,19 +455,34 @@ body::after {
   vertical-align: bottom;
 }
 
-#wrapper #todo-form input[type="text"] {
-  width: 74%;
+#wrapper #todo-form .todo-form__input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-#wrapper #todo-form input#todo-btn {
+#wrapper #todo-form .todo-form__input input[type="text"] {
+  width: 100%;
+}
+
+#wrapper #todo-form .todo-form__input input#todo-btn {
+  cursor: pointer;
+  padding: 10px 14px;
   border: 1px solid #9d61d8;
-  text-align: center;
-  font-size: 16px;
-  padding: 8px 14px;
   border-radius: 5px;
   background: #9d61d8;
   color: #fff;
-  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
   vertical-align: bottom;
 }
 
@@ -473,11 +499,25 @@ body::after {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 20px;
 }
 
 #wrapper .todo-list #todo-list li {
-  width: 48%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
   font-size: 16px;
   text-align: left;
   position: relative;
@@ -488,7 +528,7 @@ body::after {
 
 #wrapper .todo-list #todo-list li span {
   display: block;
-  width: 74%;
+  width: 80%;
   word-break: break-all;
 }
 
@@ -500,27 +540,75 @@ body::after {
   color: #fff;
   width: 32px;
   height: 32px;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 #wrapper .todo-list #todo-list li .check-btn {
   border: 1px solid #9d61d8;
-  background: #9d61d8;
+  background: #fff;
   border-radius: 5px;
   color: #fff;
   font-size: 0;
   width: 32px;
   height: 32px;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 #wrapper .todo-list #todo-list li.check .check-btn {
   position: relative;
+  border: 1px solid #c4a7db;
+}
+
+#wrapper .todo-list #todo-list li.check .check-btn::before {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 0;
+  content: "";
+  background: #c4a7db;
+}
+
+#wrapper .todo-list #todo-list li.check .check-btn::after {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  content: "check";
+  font-family: "Material Icons";
+  color: #fff;
+  font-size: 20px;
 }
 
 #wrapper .todo-list #todo-list li.check span {
   color: #9d61d8;
+  font-style: italic;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer small {
+  display: block;
+  text-align: center;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {

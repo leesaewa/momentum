@@ -11,24 +11,26 @@
 .kor {
   font-family: "Noto Sans KR", sans-serif;
 }
-main {
-  position: relative;
-  z-index: 9;
-  height: 100vh;
-}
+
 * {
   box-sizing: border-box;
 }
-input[type="text"] {
-  border: 1px solid transparent;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
+input {
+  font-family: $font;
+
+  &[type="text"] {
+    border: 1px solid transparent;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+
+    &:focus {
+      outline: 1px solid #9d61d8;
+    }
+  }
 }
-input[type="text"]:focus {
-  outline: 1px solid #9d61d8;
-}
+
 ::selection {
   background: #9d61d8;
   color: #fff;
@@ -45,20 +47,26 @@ audio {
 /*------------------------------
             body-background
 ------------------------------*/
+html,
+body {
+  height: 100%;
+}
 body {
   background-repeat: no-repeat;
   background-position: top center;
   position: relative;
   transition: background-image 4s;
-}
-body::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(52, 0, 126, 0.5);
-  width: 100%;
-  height: 100%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(52, 0, 126, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 }
 
 // loading
@@ -82,31 +90,32 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.loader .textbox {
-  text-align: center;
-}
-.loader img {
-  width: 20%;
-  opacity: 0;
-  animation-name: visualAnimation;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
-}
+  .textbox {
+    text-align: center;
 
-.loader p {
-  font-size: 60px;
-  margin-top: 60px;
-  color: #fff;
-  opacity: 0;
-  animation-name: visualAnimation;
-  animation-duration: 0.9s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0.9s;
-  animation-fill-mode: forwards;
+    img {
+      width: 20%;
+      opacity: 0;
+      animation-name: visualAnimation;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+    }
+
+    p {
+      font-size: 60px;
+      margin-top: 60px;
+      color: #fff;
+      opacity: 0;
+      animation-name: visualAnimation;
+      animation-duration: 0.9s;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.9s;
+      animation-fill-mode: forwards;
+    }
+  }
 }
 
 @keyframes visualAnimation {
@@ -123,11 +132,4 @@ body::after {
 
 .hidden {
   display: none;
-}
-
-#greeting {
-  color: #fff;
-
-  font-size: 50px;
-  text-align: center;
 }

@@ -1,0 +1,14 @@
+@mixin flexbox($flexW: nowrap, $flexJC: center, $flexAI: center) {
+  display: flex;
+  flex-wrap: $flexW;
+  justify-content: $flexJC;
+  align-items: $flexAI;
+}
+
+@mixin checkClick() {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 0;
+}

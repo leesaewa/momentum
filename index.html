@@ -13,67 +13,72 @@
     <title>saewa's Todolist</title>
 </head>
 <body>
-    <main>
-        <!-- <div class="loader">
-            <div class="textbox">
-                <img src="img/logo.png" alt="bts logo">
-                <p class="eng">I Purple U</p>
-            </div>
-        </div> -->
+  <main>
+      <!-- <div class="loader">
+          <div class="textbox">
+              <img src="img/logo.png" alt="bts logo">
+              <p class="eng">I Purple U</p>
+          </div>
+      </div> -->
 
-        <!-- <audio src="src/christmas_tree.mp3" autoplay loop controls id="myAudio"></audio> -->
+      <!-- <audio src="src/christmas_tree.mp3" autoplay loop controls id="myAudio"></audio> -->
 
-        <section id="clock">
-            <span></span>
-            <h2></h2>
-            <p></p>
-        </section>
+      <section id="clock">
+          <span></span>
+          <h2></h2>
+          <p></p>
+      </section>
 
-        <div id="weather">
-            <span></span>
-            <span></span>
-        </div>
+      <div id="weather">
+          <span></span>
+          <span></span>
+      </div>
 
-        <section class="login-wrapper">
-            <form class="login-form hidden">
-                <h2>Welcome to the BTS To do list</h2>
-                <input required maxlength="15" type="text" placeholder="what is your name?" />
-                <input type="submit" id="btn" value="Log In"></input>
-            </form>
-            <h1 id="greeting" class="hidden"></h1>
-        </section>
+      <section class="login-wrapper">
+          <form class="login-form hidden">
+              <h2>Welcome to the BTS To do list</h2>
+              <input required maxlength="15" type="text" placeholder="What is your name?" />
+              <input type="submit" id="btn" value="Log In"></input>
+          </form>
+          <h1 id="greeting" class="hidden"></h1>
+      </section>
+
+      <section id="wrapper">
+          <form id="todo-form">
+              <h3>To Do List</h3>
+              <div class="todo-form__input">
+                <input type="text" placeholder="Write a to do and press enter" required>
+              <input type="submit" id="todo-btn" value="Enter"></input>
+              </div>
+          </form>
+
+          <div class="todo-list">
+              <p><img src="img/bts08.jpg" alt="bts img"></p>
+              <ul id="todo-list"></ul>
+          </div>
+      </section>
+
+  </main>
+
+  <footer>
+    <div id="quotes">
+      <span></span>
+    <span class="kor"></span>
+    <span></span>
+    </div>
+
+    <small>Copyright © Saewa's Portfolio All Rights Reserved.</small>
+  </footer>
+
+  <!-- <script src="js/loading.js"></script> -->
+  <script src="js/login.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="js/weather.js"></script>
+  
 
 
-        <div id="quotes">
-            <span></span>
-            <span class="kor"></span>
-            <span></span>
-        </div>
-
-        <section id="wrapper">
-            <form id="todo-form">
-                <h3>To Do List</h3>
-                <input type="text" placeholder="write a to do and press enter" required>
-                <input type="submit" id="todo-btn" value="입력"></input>
-            </form>
-
-            <div class="todo-list">
-                <p><img src="img/bts08.jpg" alt="bts img"></p>
-                <ul id="todo-list"></ul>
-            </div>
-            
-        </section>
-
-    </main>
-
-    <!-- <script src="js/loading.js"></script> -->
-    <script src="js/login.js"></script>
-    <script src="js/background.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/quotes.js"></script>
-    <script src="js/todo.js"></script>
-    <script src="js/weather.js"></script>
-    
-    
 </body>
 </html>

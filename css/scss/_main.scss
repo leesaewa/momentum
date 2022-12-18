@@ -2,14 +2,11 @@
             clock
 ------------------------------*/
 #clock {
-  color: #fff;
+  color: $white;
   padding: 20px;
   line-height: 1em;
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+  @include flexbox($flexW: wrap);
 
   span {
     font-size: 3em;
@@ -39,6 +36,19 @@
 .login-wrapper {
   max-width: 90%;
   margin: 0 auto;
+  padding: 2rem 0;
+
+  #greeting {
+    color: $white;
+    font-size: 3em;
+    text-align: center;
+
+    span {
+      display: block;
+      font-size: 0.7em;
+      padding: 1rem 0 0;
+    }
+  }
 
   h2 {
     display: none;
@@ -52,7 +62,7 @@
     padding: 10px 20px;
     border-radius: 5px;
     background: $mainColor;
-    color: #fff;
+    color: $white;
     margin-top: 10px;
   }
 }
@@ -91,12 +101,10 @@
 ------------------------------*/
 
 #quotes {
-  border-top: 1px solid #fff;
-  position: absolute;
-  bottom: 0;
+  border-top: 1px solid $white;
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: $white;
   padding: 10px 20px;
 
   span {
@@ -123,7 +131,7 @@
 
   #todo-form {
     h3 {
-      color: #000;
+      color: $black;
       font-size: 30px;
       margin-bottom: 20px;
       position: relative;
@@ -135,21 +143,25 @@
         vertical-align: bottom;
       }
     }
+    .todo-form__input {
+      @include flexbox($flexAI: flex-start);
 
-    input[type="text"] {
-      width: 74%;
-    }
+      input[type="text"] {
+        width: 100%;
+      }
 
-    input#todo-btn {
-      border: 1px solid $mainColor;
-      text-align: center;
-      font-size: 16px;
-      padding: 8px 14px;
-      border-radius: 5px;
-      background: $mainColor;
-      color: #fff;
-      margin-top: 10px;
-      vertical-align: bottom;
+      input#todo-btn {
+        cursor: pointer;
+        padding: 10px 14px;
+        border: 1px solid $mainColor;
+        border-radius: 5px;
+        background: $mainColor;
+        color: $white;
+        font-size: 16px;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: bottom;
+      }
     }
   }
 
@@ -159,13 +171,12 @@
       display: none;
     }
     #todo-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      @include flexbox($flexJC: space-between, $flexW: wrap);
       margin-top: 20px;
 
       li {
-        width: 48%;
+        @include flexbox($flexJC: space-between);
+        width: 100%;
         font-size: 16px;
         text-align: left;
         position: relative;
@@ -175,7 +186,7 @@
 
         span {
           display: block;
-          width: 74%;
+          width: 80%;
           word-break: break-all;
         }
 
@@ -184,41 +195,68 @@
           border: 1px solid $mainColor;
           border-radius: 5px;
           background: $mainColor;
-          color: #fff;
+          color: $white;
           width: 32px;
           height: 32px;
-          position: absolute;
-          right: 0;
-          top: 0;
         }
 
         .check-btn {
           border: 1px solid $mainColor;
-          background: $mainColor;
+          background: $white;
           border-radius: 5px;
-          color: #fff;
+          color: $white;
           font-size: 0;
           width: 32px;
           height: 32px;
+          cursor: pointer;
+          overflow: hidden;
         }
 
         // check button cliclk
         &.check {
           .check-btn {
             position: relative;
+            border: 1px solid $subColor;
 
             &::before {
+              @include checkClick;
+              content: "";
+              background: $subColor;
             }
 
             &::after {
+              @include checkClick;
+              @include flexbox;
+              content: "check";
+              font-family: "Material Icons";
+              color: $white;
+              font-size: 20px;
             }
           }
 
           span {
             color: $mainColor;
+            font-style: italic;
+            text-decoration-line: line-through;
           }
         }
       }
     }
+  }
+}
+
+//
+//
+// footer
+//
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  small {
+    display: block;
+    text-align: center;
+    color: $white;
   }
 }
