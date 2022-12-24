@@ -26,7 +26,6 @@ function checkToDo(event) {
   const check = JSON.parse(localStorage.getItem(TODOS_KEY));
   // find() : 배열에서 특정 값을 찾는 조건을 callback함수를 통해 전달하여, 조건에 맞는 값 중 '첫번째 값'을 리턴
   const checkId = check.find(({ id }) => id == parseInt(checkList.id));
-  console.log(checkId);
 
   if (checkId.check === 1) {
     checkList.classList.remove("check");
