@@ -4,11 +4,11 @@ BTS Todo List made with VanillaJS
 
 ## <a href="https://leesaewa.github.io/momentum/">프로젝트 링크</a>
 
-### preview (update 2022.12)
+### Preview (update 2022.12)
 
 #### PC
 
-<img src="https://user-images.githubusercontent.com/97646713/209439733-23f9e2f7-0ddd-4938-ab09-6718c5d7a860.jpg">
+<img src="https://user-images.githubusercontent.com/97646713/209441059-366cad47-2cb8-44e3-8453-abe02ff6ac1c.jpg">
 
 #### SP
 
@@ -73,3 +73,4 @@ BTS Todo List made with VanillaJS
 - 작성한 todo 진행도
 - 해시태그 넣기
 - todo 작성시, 등록한 시간과 날짜가 출력
+- `username` 삭제 및 수정
