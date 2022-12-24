@@ -40,10 +40,7 @@ BTS Todo List made with VanillaJS
 
 ## 1. Tool
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
-<img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
 
 - only vanilla javascript
 - scss, css, html
@@ -105,7 +102,7 @@ function checkToDo(event) {
 ```
 
 이렇게 작성하면 클릭할 때마다 li에 `check` 클래스가 추가 됐다가 삭제 됨.
-그러나... `localStorage`에 저장을 안하고 그냥 보여질 때마다 체크 버튼을 누를거면 이 상태로도 상관없는데, `localStorage`에 저장하려면 `toggle`보다 `add`, `remove`가 더 적절하다고 생각함.
+그러나... `localStorage`에 저장을 안하고 그냥 보여질 때마다 체크 버튼을 누를거면 이 상태로도 상관없는데, `localStorage`에 저장해서 조건문으로 값을 체크하는 게 좋을 것 같아서 `toggle`보다 `add`, `remove`가 더 적절하다고 생각함.
 
 3. todo input 값을 저장하는 `newTodoObj(object)` 안에 `check: 0`를 넣어서 `1`이면 `check` 클래스를 `추가`하고 `0`이면 `check`를 `삭제`하도록 하기로 함.
 
